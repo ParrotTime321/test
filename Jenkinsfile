@@ -1,17 +1,22 @@
 pipeline {
     agent any
+
+    environment {
+        WORKSPACE = "/home/ubuntu/"
+    }
+
     stages {
         stage('Who am i and pwd') { 
             steps {
-                    sh 'whoami'
-                    sh 'pwd'
-                    sh 'cd /home/ubuntu/'
-                    sh 'pwd'
+                sh 'whoami'
+                sh 'pwd'
             }
         }
         stage('Hello') { 
             steps {
-                dir('/home/ubuntu/') {
+                dir("${WORKSPACE}") {
+                    sh 'mkdir -p home/ubuntu'
+                    sh 'cd home/ubuntu'
                     echo 'Hello World 2'
                     sh 'whoami'
                     sh 'pwd'
