@@ -1,6 +1,12 @@
 pipeline {
     agent any
     stages {
+        stage('Who am i and pwd') { 
+            steps {
+                    sh 'whoami'
+                    sh 'pwd'
+            }
+        }
         stage('Hello') { 
             steps {
                 dir('/home/ubuntu/') {
