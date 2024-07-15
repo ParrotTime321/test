@@ -5,6 +5,8 @@ pipeline {
             steps {
                     sh 'whoami'
                     sh 'pwd'
+                    sh 'cd /home/ubuntu/'
+                    sh 'pwd'
             }
         }
         stage('Hello') { 
